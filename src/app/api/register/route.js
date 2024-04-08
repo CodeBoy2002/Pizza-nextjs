@@ -1,7 +1,10 @@
-import React from 'react'
+// import { User } from "@/app/models/User";
+import { User } from "./../../models/User"
+import mongoose from "mongoose";
 
-const POST = (req) => {
-  return Response.json('ok')
-}
-
-export default POST
+export const POST = async (req) => {
+  const body = await req.json();
+  mongoose.connect(process.env.MONGO_URL);
+  const createUser = await User.create(body);
+  return Response.json(createUser);
+};
