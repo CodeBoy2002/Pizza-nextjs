@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "./components/layout/Header";
 
-const inter = Inter({ subsets: ["latin"], weight: ['400', '500', '700'] });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export const metadata = {
   title: "Food Delivery App",
@@ -12,9 +13,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <main className="max-w-4xl mx-auto p-4">
-        {children}
-      </main>
+        <main className="max-w-4xl mx-auto p-4">
+          <Header />
+          {children}
+          <footer className="text-center mt-16 text-gray-500 text-semibold">
+            &copy; 2024 All rights reserved
+          </footer>
+        </main>
       </body>
     </html>
   );
